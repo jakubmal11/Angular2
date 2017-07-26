@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
     constructor(private http: HttpClient) {}
     ngOnInit(): void {
         // Make the HTTP request:
-        this.http.get('http://localhost:8080/heroes').subscribe(data => {
-            // Read the result field from the JSON response.
-            console.log(data);
-        });
+        // this.http.get('http://localhost:8080/heroes').subscribe(data => {
+        //     // Read the result field from the JSON response.
+        //     console.log(data);
+        // });
     }
 }
 

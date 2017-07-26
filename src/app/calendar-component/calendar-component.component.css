@@ -1,0 +1,16 @@
+.singleSquare:hover {
+  background-color: #bbbbbb;
+  cursor:pointer;
+}
+.singleSquare {
+  border: 2px solid black;
+}
+.singleSquare-7 {
+  background-color: #DDDDDD;
+}
+.event {
+  background-color: #6ca1fc;
+}
+#calendar {
+  color: black;
+}
