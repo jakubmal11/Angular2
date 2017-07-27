@@ -1,7 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {DayWithEvents} from '../day-with-events';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
@@ -12,9 +11,10 @@ import 'rxjs/add/operator/map';
 })
 @Injectable()
 export class CalendarComponentComponent implements OnInit {
+  constructor(private http: HttpClient) {
+  }
   currentMonth: number = new Date().getMonth();
   currentYear: number = new Date().getFullYear();
-  constructor(private http: HttpClient) {}
   daysWithEvents: DayWithEvents[];
   days: DayWithEvents[][] = [];
   help: DayWithEvents[] = [];
@@ -42,7 +42,17 @@ export class CalendarComponentComponent implements OnInit {
     });
   }
   loadNextMonth() {
+    this.clear();
     this.currentMonth += 1;
     this.getDays();
+  }
+  loadPreviousMonth() {
+    this.clear();
+    this.currentMonth -= 1;
+    this.getDays();
+  }
+  clear() {
+    this.days = [];
+    this.help = [];
   }
 }

@@ -1,0 +1,33 @@
+<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+     [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Plans on day: {{selectedDay.localDate.monthValue}}/{{selectedDay.localDate.dayOfMonth}}/{{selectedDay.localDate.year}}</h3>
+        <ng-content select=".app-modal-header"></ng-content>
+      </div>
+      <div class="modal-body">
+        <div id="alreadyAdded">
+          <div *ngFor="let event of selectedDay.eventList">
+            <div class="row">
+              <div class="col-md-6" id="eventName">{{event.title}}</div>
+              <div class="col-md-3" id="editButton">
+                <button type="button" class="btn btn-block center" (click)="editEvent(event)">Edit</button>
+              </div>
+              <div class="col-md-3" id="removeButton">
+                <button type="button" class="btn btn-danger btn-block center" (click)="removeEvent(event)">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="actions">
+          <button type="button" class="btn btn-success" (click)="addNewEvent()">New event</button>
+        </div>
+        <ng-content select=".app-modal-body"></ng-content>
+      </div>
+      <div class="modal-footer">
+        <ng-content select=".app-modal-footer"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

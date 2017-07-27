@@ -11,20 +11,24 @@ import { HeroService }          from './hero.service';
 import { AppRoutingModule }     from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { CalendarComponentComponent } from './calendar-component/calendar-component.component';
+import { EventPopupComponent } from './event-popup/event-popup.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-      HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
     DashboardComponent,
     HeroDetailComponent,
     HeroesComponent,
-    CalendarComponentComponent
+    CalendarComponentComponent,
+    EventPopupComponent
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]
